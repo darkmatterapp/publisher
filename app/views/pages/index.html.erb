@@ -1,0 +1,16 @@
+<h1>Pages</h1>
+
+<ol class="h-feed">
+  <% @posts.each do |page| %>
+    <li>
+      <article class="h-entry">
+        <h1 class="p-name">
+        <%= link_to page.slug do %>
+          <span class="hs-title"><%= page.title %></span><br>
+          <span class="hs-subtitle"><%= page.subtitle %></span>
+        <% end %>
+        </h1>
+      </article>
+    </li>
+  <% end %>
+</ol>

@@ -4,13 +4,16 @@ class BookmarksController < ApplicationController
 
   def index
     if signed_in?
-      @posts = Bookmark.all
+      @posts = Bookmark.paginate(page: params[:page]).all
     else
-      @posts = Bookmark.visible.all
+      @posts = Bookmark.visible.paginate(page: params[:page]).all
     end
+
+    render "/posts/index"
   end
 
   def show
+    render "/posts/show"
   end
 
   def new
@@ -25,6 +28,7 @@ class BookmarksController < ApplicationController
     @post = PostForm.new(Bookmark)
 
     if @post.submit(params[:bookmark])
+      save_tags(@post, bookmark_params)
       redirect_to @post.post_type.path, notice: "Bookmark was successfully created."
     else
       render :new
@@ -33,6 +37,7 @@ class BookmarksController < ApplicationController
 
   def update
     if @post.update(bookmark_params)
+      save_tags(@post, bookmark_params)
       redirect_to @post.path, notice: "Bookmark was successfully updated."
     else
       render :edit
@@ -40,6 +45,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
+    delete_tags(@post)
     @post.destroy
     redirect_to bookmarks_url, notice: "Bookmark was successfully destroyed."
   end

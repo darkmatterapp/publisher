@@ -7,6 +7,10 @@ class Post < ActiveRecord::Base
 
   delegate :fallback_name, :fallback_attribute, to: :post_type
 
+  def user
+    User.first
+  end
+
   def name
     if title && subtitle
       "#{title} : #{subtitle}"
@@ -27,6 +31,13 @@ class Post < ActiveRecord::Base
     ].join("/")
   end
 
+  def tags
+    output = []
+    Tagging.where(post_type: self.class.to_s.downcase, post_id: id).all.find_each do |tagging|
+      output << Tag.find(tagging.tag_id)
+    end
+    output
+  end
 
   private
 
@@ -46,4 +57,7 @@ class Post < ActiveRecord::Base
     clean_slug!
   end
 
+  def set_published_at
+    self.published_at = Time.now.getlocal if published_at.blank?
+  end
 end

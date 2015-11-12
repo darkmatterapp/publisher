@@ -1,0 +1,24 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- General meta tags -->
+<meta name="application-name"    content="<%= site_title %>" />
+<meta name="generator"           content="homesteading.io" />
+<meta name="description"         content="<%= page_description %>" />
+
+<!-- Micropub -->
+<link rel="me"                     href="<%= setting :rel_me %>" />
+<link rel="authorization_endpoint" href="<%= setting :rel_authorization_endpoint %>" />
+<link rel="token_endpoint"         href="<%= setting :rel_token_endpoint %>" />
+<link rel="micropub"               href="<%= setting :micropub_endpoint %>" />
+
+<!-- Backward compatibility: Facebook (Open Graph) -->
+<meta property="og:type"         content="blog" />
+<meta property="og:url"          content="<%= canonical_url @post %>" />
+<meta property="og:image"        content="<%= "TODO" %>" />
+<meta property="og:title"        content="<%= site_title %>" />
+<meta property="og:description"  content="<%= page_description %>" />
+<meta property="fb:app_id"       content="<%= "TODO" %>" />
+
+<%= csrf_meta_tags %>

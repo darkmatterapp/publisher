@@ -1,0 +1,21 @@
+<nav role="navigation">
+  <% if allow_signup? %>
+    <%= link_to "Sign Up", signup_path %>
+  <% else %>
+    <ul>
+      <% if show_nav_to?(:home) %><li><%= link_to "Home", root_path %></li><% end %>
+      <% if show_site_nav? %>
+        <% if show_nav_to?(:articles) %><li><%= link_to "Articles", articles_path %></li><% end %>
+        <% if show_nav_to?(:bookmarks) %><li><%= link_to "Bookmarks", bookmarks_path %></li><% end %>
+        <% if show_nav_to?(:events) %><li><%= link_to "Events", events_path %></li><% end %>
+        <% if show_nav_to?(:notes) %><li><%= link_to "Notes", notes_path %></li><% end %>
+        <% if show_nav_to?(:photos) %><li><%= link_to "Photos", photos_path %></li><% end %>
+        <% if show_nav_to?(:sounds) %><li><%= link_to "Sounds", sounds_path %></li><% end %>
+        <% if show_nav_to?(:videos) %><li><%= link_to "Videos", videos_path %></li><% end %>
+        <% if show_nav_to?(:pages) %><li><%= link_to "Pages", pages_path %></li><% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</nav>
+
+<%= render "/shared/google_site_search" if show?(:header_show_site_search) %>

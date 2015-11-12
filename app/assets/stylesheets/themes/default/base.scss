@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.screen-reader-only {
+  display: none !important;
+}
+
+body,
+fieldset,
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=number],
+input[type=datetime],
+input[type=password],
+textarea,
+button {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+body,
+fieldset,
+input[type=text],
+input[type=url],
+input[type=email],
+input[type=number],
+input[type=datetime],
+input[type=password],
+textarea {
+  width: 100%;
+}
+
+a {
+  color: #444;
+}
+
+.small-word {
+  font-weight: normal;
+  font-style: italic;
+  font-family: georgia, times, serif;
+}

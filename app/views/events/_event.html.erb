@@ -1,0 +1,9 @@
+<%= render "/posts/content", post: post %>
+
+<div class="p-summary">
+  <%= simple_format event.summary %>
+</div>
+
+<% if event.organizer_name.present? %>
+  <p>Organized by <a class="p-organizer h-card" href="<%= event.organizer_url %>"><%= event.organizer_name %></a></p>
+<% end %>

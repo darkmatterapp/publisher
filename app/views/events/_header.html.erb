@@ -1,0 +1,23 @@
+<h2>
+  <% if post.starts_at.present? %>
+    <%= time_tag post.starts_at, class: "dt-starts" do %>
+      <%= human_readable_date post.starts_at %>
+      <%= human_readable_time post.starts_at %>
+    <% end %>
+  <% end %>
+
+  <% if post.ends_at.present? %>
+    &ndash;
+
+    <%= time_tag post.ends_at, class: "dt-ends" do %>
+      <%= human_readable_date post.ends_at %>
+      <%= human_readable_time post.ends_at %>
+    <% end %>
+  <% end %>
+</h2>
+
+<h3 class="p-location h-card">
+  <%= link_to post.location_url, class: "u-url" do %><span class="p-name"><%= post.location_name %></span><% end %>
+
+  <%= link_to_location post %>
+</h3>

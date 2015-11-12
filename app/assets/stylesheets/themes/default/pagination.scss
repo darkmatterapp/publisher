@@ -1,0 +1,55 @@
+/* pagination... */
+.pagination {
+  font-size: 12px;
+  text-align: center;
+  padding: 3em 0;
+}
+
+.pagination span,
+.pagination em,
+.pagination a {
+  padding: .25em;
+  border: 0;
+}
+
+.pagination .disabled {
+  color: #999;
+}
+
+.pagination .current {
+  color: white;
+  font-weight: bold;
+  background: #666;
+  font-style: normal;
+  display: inline-block;
+  text-align: center;
+}
+
+.pagination .gap {
+  color: #666;
+}
+
+.pagination a {
+  color: #666;
+  background: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.pagination a.prev_page,
+.pagination a.next_page {
+  font-weight: bold;
+}
+
+.pagination a:hover {
+  color: white;
+  background: #333;
+}
+
+/* "tablet" */
+@media (min-width: 768px) {
+  .pagination {
+    font-size: 16px;
+  }
+}
+/* ...pagination */

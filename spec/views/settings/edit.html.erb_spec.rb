@@ -4,7 +4,7 @@ RSpec.describe "settings/edit", type: :view do
   before(:each) do
     @setting = assign(:setting, Setting.create!(
       name: "MyString",
-      key: "MyString",
+      slug: "MyString",
       content: "MyText",
       editable: false
     ))

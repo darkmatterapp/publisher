@@ -16,7 +16,10 @@ class Note < PostType
   end
 
   def title
-    content
+    nil
   end
 
+  def subtitle
+    nil
+  end
 end

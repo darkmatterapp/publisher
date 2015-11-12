@@ -1,0 +1,25 @@
+<%= form_for(@redirect) do |f| %>
+  <% if @redirect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@redirect.errors.count, "error") %> prohibited this redirect from being saved:</h2>
+
+      <ul>
+      <% @redirect.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :source_path %><br>
+    <%= f.text_field :source_path %>
+  </div>
+  <div class="field">
+    <%= f.label :target_path %><br>
+    <%= f.text_field :target_path %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

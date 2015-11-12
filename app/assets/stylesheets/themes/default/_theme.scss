@@ -1,0 +1,30 @@
+// This file gets required by application.css
+// It can contain require to other .css/.scss files,
+// SCSS/CSS directly, or both.
+
+//= require themes/normalize
+//= require themes/default/base
+//= require themes/default/header
+//= require themes/default/nav
+//= require themes/default/settings
+//= require themes/default/alerts
+//= require themes/default/pagination
+//= require themes/default/admin-footer
+//= require themes/default/forms
+//= require themes/default/search
+//= require themes/default/feeds
+
+// TEMP
+body > * {
+  margin: 1em;
+}
+
+// TEMP
+.h-event,
+.h-entry {
+  .edit {
+    display: inline-block;
+    margin: 4rem 0;
+    color: red;
+  }
+}

@@ -1,0 +1,13 @@
+#settings main {
+  label,
+  input {
+    text-align: left;
+    font-size: 1em;
+  }
+
+  form     { margin-bottom: 5em; }
+  dt       { font-weight: bold; }
+  dt label { font-weight: normal; }
+  dd       { margin: 0 0 1em 0; }
+  input    { border-bottom: 1px dotted #999; text-transform: uppercase;}
+}

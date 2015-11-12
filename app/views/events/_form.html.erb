@@ -1,0 +1,116 @@
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_area :title %>
+</div>
+<div class="field">
+  <%= f.label :subtitle %><br>
+  <%= f.text_area :subtitle %>
+</div>
+<div class="field">
+  <%= f.label :content %><br>
+  <%= f.text_area :content %>
+</div>
+<div class="field">
+  <%= f.label :slug %><br>
+  <%= f.text_area :slug %>
+</div>
+<div class="field">
+  <%= f.label :in_reply_to %><br>
+  <%= f.text_area :in_reply_to %>
+</div>
+<div class="field">
+  <%= f.label :tags %><br>
+  <%= text_area_tag :tags, @post.tags.map(&:name).join(", ") %>
+</div>
+<div class="field">
+  <%= f.label :published_at %><br>
+  <%= f.datetime_select :published_at %>
+</div>
+<div class="field">
+  <%= f.label :private %>
+  <%= f.check_box :private %>
+</div>
+<div class="field">
+  <%= f.label :summary %><br>
+  <%= f.text_area :summary %>
+</div>
+<div class="field">
+  <%= f.label :url %><br>
+  <%= f.text_area :url %>
+</div>
+<div class="field">
+  <%= f.label :organizer_name %><br>
+  <%= f.text_area :organizer_name %>
+</div>
+<div class="field">
+  <%= f.label :organizer_url %><br>
+  <%= f.text_area :organizer_url %>
+</div>
+<div class="field">
+  <%= f.label :location_name %><br>
+  <%= f.text_area :location_name %>
+</div>
+<div class="field">
+  <%= f.label :location_url %><br>
+  <%= f.text_area :location_url %>
+</div>
+<div class="field">
+  <%= f.label :location_street_address %><br>
+  <%= f.text_area :location_street_address %>
+</div>
+<div class="field">
+  <%= f.label :location_extended_street_address %><br>
+  <%= f.text_area :location_extended_street_address %>
+</div>
+<div class="field">
+  <%= f.label :location_locality %><br>
+  <%= f.text_area :location_locality %>
+</div>
+<div class="field">
+  <%= f.label :location_region %><br>
+  <%= f.text_area :location_region %>
+</div>
+<div class="field">
+  <%= f.label :location_country %><br>
+  <%= f.text_area :location_country %>
+</div>
+<div class="field">
+  <%= f.label :location_postal_code %><br>
+  <%= f.text_area :location_postal_code %>
+</div>
+<div class="field">
+  <%= f.label :location_latitude %><br>
+  <%= f.text_area :location_latitude %>
+</div>
+<div class="field">
+  <%= f.label :location_longitude %><br>
+  <%= f.text_area :location_longitude %>
+</div>
+<div class="field">
+  <%= f.label :location_altitude %><br>
+  <%= f.text_area :location_altitude %>
+</div>
+<div class="field">
+  <%= f.label :starts_at %><br>
+  <%= f.datetime_select :starts_at %>
+</div>
+<div class="field">
+  <%= f.label :ends_at %><br>
+  <%= f.datetime_select :ends_at %>
+</div>
+<div class="actions">
+  <%= link_to "Cancel", events_url %>
+  <%= f.submit %>
+</div>

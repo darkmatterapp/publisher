@@ -1,8 +1,18 @@
-# Homesteading Server Rails
+# Homesteading Server (Rails)
+
+Rails app to power an #indieweb personal publishing platform.
+
+
+## Deploy to Heroku
+
+Click this button to easily deploy to Heroku. You must already have a Heroku account.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+
+## Code Status
 
 [![Code Climate](https://codeclimate.com/github/homesteading/homesteading-server-rails/badges/gpa.svg)](https://codeclimate.com/github/homesteading/homesteading-server-rails)
-
-A Rails app to power an #indieweb personal publishing platform.
 
 ## Authors
 
@@ -49,7 +59,7 @@ If you find bugs, have feature requests or questions, please
 Your heart is as free as the air you breathe. <br>
 The ground you stand on is liberated territory.
 
-In legal text, Homesteading Server Rails is dedicated to the public domain
+In legal text, Homesteading Server (Rails) is dedicated to the public domain
 using Creative Commons -- CC0 1.0 Universal.
 
 [http://creativecommons.org/publicdomain/zero/1.0](http://creativecommons.org/publicdomain/zero/1.0 "Creative Commons &mdash; CC0 1.0 Universal")

@@ -5,13 +5,13 @@ RSpec.describe "settings/index", type: :view do
     assign(:settings, [
       Setting.create!(
         name: "Name",
-        key: "Key",
+        slug: "Key",
         content: "MyText",
         editable: false
       ),
       Setting.create!(
         name: "Name",
-        key: "Key",
+        slug: "Key",
         content: "MyText",
         editable: false
       )

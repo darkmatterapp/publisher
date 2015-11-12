@@ -1,0 +1,50 @@
+<%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_area :title %>
+  </div>
+  <div class="field">
+    <%= f.label :subtitle %><br>
+    <%= f.text_area :subtitle %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :slug %><br>
+    <%= f.text_area :slug %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= text_area_tag :tags, @post.tags.map(&:name).join(", ") %>
+  </div>
+  <div class="field">
+    <%= f.label :published_at %><br>
+    <%= f.datetime_select :published_at %>
+  </div>
+  <div class="field">
+    <%= f.label :private %>
+    <%= f.check_box :private %>
+  </div>
+  <div class="field">
+    <%= f.label :show_in_nav %>
+    <%= f.check_box :show_in_nav %>
+  </div>
+  <div class="actions">
+    <%= link_to "Cancel", pages_url %>
+    <%= f.submit %>
+  </div>
+<% end %>

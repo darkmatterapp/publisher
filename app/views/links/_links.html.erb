@@ -1,0 +1,12 @@
+<dl>
+  <% @links.each do |link| %>
+    <dt><%= link_to link.name, edit_link_path(link) %></dt>
+
+    <dd>
+      <%= link.url %>
+    </dd>
+    <dd>
+      <%= link_to "Delete", link, method: :delete, data: { confirm: "Are you sure you're sure? There is NO UNDO." } %>
+    </dd>
+  <% end %>
+</dl>

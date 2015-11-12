@@ -1,11 +1,16 @@
 <h1>Sign In</h1>
 
 <%= form_tag sessions_path do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email, params[:email], autofocus: true %>
+  <div class="field">
+    <%= label_tag :email %><br>
+    <%= email_field_tag :email, params[:email], autofocus: true %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %><br>
+    <%= password_field_tag :password %>
+  </div>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag "Sign In" %>
+  <div class="actions">
+    <%= submit_tag "Sign In" %>
+  </div>
 <% end %>

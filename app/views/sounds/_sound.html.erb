@@ -1,41 +1,13 @@
-<% if sound.public? || signed_in? %>
-  <%= raw "<li>" if in_a_list? %>
-    <article id="sound-<%= sound.id %>" class="h-entry as-sound">
+<div class="e-content">
+  <audio controls>
+    <source src="<%= post.enclosure_url %>" class="u-audio" />
+  </audio>
 
-      <header>
-        <% if a_reply?(sound) %>
-          <div class="reply-context">
-            <b>In Reply To</b>
-            <%= link_to_in_reply_to_urls sound %>
-          </div>
-        <% end %>
+  <p class="download">
+    <%= link_to "Download sound", post.enclosure_url, class: "u-x-enclosure" %>
+  </p>
 
-        <h1 class="p-name">
-          <%= link_to sound.path, class: "u-url u-uid" do %>
-            <% unless sound.title.blank? %>   <span class="p-hs-title">   <%= sound.title %>   </span><% end %>
-            <% unless sound.subtitle.blank? %><span class="p-hs-subtitle"><%= sound.subtitle %></span><% end %>
-          <% end %>
-        </h1>
-      </header>
-
-      <div class="e-content">
-        <audio controls>
-          <source src="<%= sound.enclosure_url %>" class="u-audio" />
-        </audio>
-
-        <p class="download">
-          <%= link_to "Download sound", sound.enclosure_url, class: "u-x-enclosure" %>
-        </p>
-
-        <div class="p-summary">
-          <%= raw sound.content %>
-        </div>
-      </div>
-
-      <%= render partial: "posts/footer", locals: { post: sound } %>
-      <%= link_to "Edit", edit_sound_path(sound.params), class: "edit" if signed_in? %>
-    </article>
-    
-    <hr>
-  <%= raw "</li>" if in_a_list? %>
-<% end %>
+  <div class="p-summary">
+    <%= raw post.content %>
+  </div>
+</div>

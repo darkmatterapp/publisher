@@ -10,18 +10,18 @@
   <dl>
     <dt>Editing <%= f.label :content, @setting.name %></dt>
     <dd>
-      <% if @setting.key == "license" %>
+      <% if @setting.slug == "license" %>
         <%= f.select :content, License.options_for_select.map{|l| [l.first.html_safe, l.last]} %>
       <% else %>
-        <%= f.text_field :content, autofocus: true %>
+        <%= f.text_area :content, autofocus: true %>
       <% end %>
     </dd>
-
-    <dd class="actions">
-      <%= link_to  "Cancel", settings_url, class: "action"      %>
-      <%= f.button "Save",                 class: "action-save" %>
-    </dd>
   </dl>
+
+  <div class="actions">
+    <%= link_to "Cancel", settings_url %>
+    <%= f.submit %>
+  </div>
 <% end %>
 
 <%= render "settings" %>

@@ -44,16 +44,17 @@
 </div>
 <div class="field">
   <%= f.label :tags %><br>
-  <%= f.text_area :tags %>
+  <%= text_area_tag :tags, @post.tags.map(&:name).join(", ") %>
 </div>
 <div class="field">
   <%= f.label :published_at %><br>
   <%= f.datetime_select :published_at %>
 </div>
 <div class="field">
-  <%= f.label :private %><br>
+  <%= f.label :private %>
   <%= f.check_box :private %>
 </div>
 <div class="actions">
+  <%= link_to "Cancel", bookmarks_url %>
   <%= f.submit %>
 </div>

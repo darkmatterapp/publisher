@@ -1,0 +1,33 @@
+{
+  "name": "Homesteading Server (Rails)",
+  "description": "Rails app to power an #indieweb personal publishing platform.",
+  "keywords": [
+    "indieweb",
+    "homesteading",
+    "publishing",
+    "rubyonrails",
+    "rails"
+  ],
+  "website": "http://homesteading.io",
+  "repository": "https://github.com/homesteading/homesteading-server-rails",
+  "logo": "http://homesteading.io/logo.png",
+  
+  "success_url": "/signup",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "COOKIE_SECRET": {
+      "description": "This gets generated",
+      "generator":   "secret"
+    },
+    "MIN_THREADS": "1",
+    "MAX_THREADS": "1"
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "papertrail"
+  ],
+  "image": "heroku/cedar"
+}

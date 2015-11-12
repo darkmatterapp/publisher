@@ -1,15 +1,19 @@
 class NotesController < ApplicationController
   before_action :set_note,  only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:show, :index]
+
   def index
     if signed_in?
-      @posts = Note.all
+      @posts = Note.paginate(page: params[:page]).all
     else
-      @posts = Note.visible.all
+      @posts = Note.visible.paginate(page: params[:page]).all
     end
+
+    render "/posts/index"
   end
 
   def show
+    render "/posts/show"
   end
 
   def new
@@ -23,6 +27,7 @@ class NotesController < ApplicationController
     @post = PostForm.new(Note)
 
     if @post.submit(params[:note])
+      save_tags(@post, note_params)
       redirect_to @post.path, notice: "Note was successfully created."
     else
       render :new
@@ -31,6 +36,7 @@ class NotesController < ApplicationController
 
   def update
     if @post.update(note_params)
+      save_tags(@post, note_params)
       redirect_to @post.path, notice: "Note was successfully updated."
     else
       render :edit
@@ -38,6 +44,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
+    delete_tags(@post)
     @post.destroy
     redirect_to notes_url, notice: "Note was successfully destroyed."
   end
@@ -46,7 +53,6 @@ class NotesController < ApplicationController
 
   def set_note
     @post = Post.where(slug: params[:slug]).first
-
     return redirect_to(root_path) if @post.private? && !signed_in?
   end
 

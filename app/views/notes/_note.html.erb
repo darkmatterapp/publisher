@@ -1,25 +1,5 @@
-<% if note.public? || signed_in? %>
-  <%= raw "<li>" if in_a_list? %>
-    <article id="note-<%= note.id %>" class="h-entry h-as-note">
+<div class="p-name e-content">
+  <%# TODO: linked_content: URLs, @usernames, #hashtags, embeds %>
+  <%= simple_format post.content %>
+</div>
 
-      <header>
-        <% if a_reply?(note) %>
-          <div class="reply-context">
-            <b>In Reply To</b>
-            <%= link_to_in_reply_to_urls note %>
-          </div>
-        <% end %>
-
-        <h1 class="p-name e-content">
-          <%# TODO: linked_content: URLs, @usernames, #hashtags, embeds %>
-          <%= note.content %>
-        </h1>
-      </header>
-
-      <%= render partial: "posts/footer", locals: { post: note } %>
-      <%= link_to "Edit", edit_note_path(note.params), class: "edit" if signed_in? %>
-    </article>
-  
-    <hr>
-  <%= raw "</li>" if in_a_list? %>
-<% end %>

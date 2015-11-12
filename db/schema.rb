@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029234152) do
+ActiveRecord::Schema.define(version: 20151110194105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.text     "tags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,9 +25,37 @@ ActiveRecord::Schema.define(version: 20151029234152) do
     t.text     "bookmark_author"
     t.text     "bookmark_excerpt"
     t.text     "bookmark_url"
-    t.text     "tags"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.text     "title"
+    t.text     "subtitle"
+    t.text     "content"
+    t.text     "slug"
+    t.text     "in_reply_to"
+    t.datetime "published_at"
+    t.boolean  "private"
+    t.text     "summary"
+    t.text     "url"
+    t.text     "organizer_name"
+    t.text     "organizer_url"
+    t.text     "location_name"
+    t.text     "location_url"
+    t.text     "location_street_address"
+    t.text     "location_extended_street_address"
+    t.text     "location_locality"
+    t.text     "location_region"
+    t.text     "location_country"
+    t.text     "location_postal_code"
+    t.text     "location_latitude"
+    t.text     "location_longitude"
+    t.text     "location_altitude"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "licenses", force: :cascade do |t|
@@ -40,14 +67,32 @@ ActiveRecord::Schema.define(version: 20151029234152) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.text     "tags"
+  create_table "links", force: :cascade do |t|
+    t.text     "url"
+    t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.text     "title"
+    t.text     "subtitle"
+    t.text     "content"
+    t.text     "slug"
+    t.boolean  "show_in_nav"
+    t.datetime "published_at"
+    t.boolean  "private"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "photos", force: :cascade do |t|
-    t.text     "tags"
     t.text     "image_url"
     t.integer  "width"
     t.integer  "height"
@@ -70,9 +115,16 @@ ActiveRecord::Schema.define(version: 20151029234152) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "redirects", force: :cascade do |t|
+    t.text     "source_path"
+    t.text     "target_path"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string   "name"
-    t.string   "key"
+    t.string   "slug"
     t.text     "content"
     t.boolean  "editable",   default: true
     t.datetime "created_at",                null: false
@@ -80,7 +132,6 @@ ActiveRecord::Schema.define(version: 20151029234152) do
   end
 
   create_table "sounds", force: :cascade do |t|
-    t.text     "tags"
     t.text     "image_url"
     t.integer  "duration"
     t.datetime "captured_at"
@@ -89,15 +140,33 @@ ActiveRecord::Schema.define(version: 20151029234152) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "post_id"
+    t.string   "post_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "test"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
+    t.string   "name"
+    t.text     "url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "avatar"
   end
 
   create_table "videos", force: :cascade do |t|
-    t.text     "tags"
     t.text     "image_url"
     t.integer  "width"
     t.integer  "height"

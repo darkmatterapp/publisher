@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "posts#index"
 
-  # users + auth
+  # Users + auth
   resources :users, :sessions
   get "signup", to: "users#new", as: "signup"
   get "signin", to: "sessions#new", as: "signin"
@@ -46,6 +46,21 @@ Rails.application.routes.draw do
   get "/bookmarks/page",                      to: redirect("/bookmarks")
   get "/bookmarks/page/:page",                to: "bookmarks#index", constraints: {page: /\d+/}
   get "(/bookmarks)(/:year)(/:month)(/:day)", to: "bookmarks#index", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}
+
+  # Events CRUD
+  get "/events/new", to: "events#new", as: "new_event"
+  post "/events", to: "events#create", as: "events"
+  post "/events/:year/:month/:day", to: "events#create", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}
+  get "/events/:year/:month/:day/:slug", to: "events#show", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}, as: "event"
+  get "/events/:year/:month/:day/:slug/edit", to: "events#edit", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}, as: "edit_event"
+  patch "/events/:year/:month/:day/:slug", to: "events#update", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}
+  delete "/events/:year/:month/:day/:slug", to: "events#destroy", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}
+
+  # Events Pagination
+  get "/events/page/1",                    to: redirect("/events")
+  get "/events/page",                      to: redirect("/events")
+  get "/events/page/:page",                to: "events#index", constraints: {page: /\d+/}
+  get "(/events)(/:year)(/:month)(/:day)", to: "events#index", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}
 
   # Notes CRUD
   get "/notes/new", to: "notes#new", as: "new_note"
@@ -107,6 +122,21 @@ Rails.application.routes.draw do
   get "/videos/page/:page",                to: "videos#index", constraints: {page: /\d+/}
   get "(/videos)(/:year)(/:month)(/:day)", to: "videos#index", constraints: {year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/}
 
-  # settings
+  # Settings
   resources :settings, only: [:index, :edit, :update]
+  get "key.pub", to: "about#public_key", as: "public_key"
+
+  # rel-me links
+  resources :links
+
+  # Tags
+  get "tags", to: "tags#index", as: "tags"
+  get "tags/:slug", to: "tags#show", as: "tag"
+
+  # Redirects Manager
+  resources :redirects, except: :show
+
+  # Redirection and Page lookup as a fallback to all routes
+  resources :pages, except: [:show]
+  get ":path", to: "pages#show", as: "slugged_page"
 end

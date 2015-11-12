@@ -36,7 +36,7 @@
       <link rel="alternate" type="text/html" href="<%= canonical_url post %>"/>
       <title><%= post.name %></title>
 
-      <% tags_for(post).each do |tag| %>
+      <% post.tags.each do |tag| %>
         <category scheme="<%= tag %>" term="<%= tag %>" />
       <% end %>
 

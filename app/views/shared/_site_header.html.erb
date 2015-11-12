@@ -1,0 +1,6 @@
+<header role="banner" class="h-card">
+  <%= render "/shared/site_owner_photo" if show?(:header_show_avatar) %>
+
+  <h1 class="hs-site-title"><%= link_to setting(:site_title), root_url, class: "u-url", rel: "home" if show?(:header_show_site_title) %></h1>
+  <h2 class="hs-site-description"><%= simple_format setting(:site_description) if show?(:header_show_site_description) %></h2>
+</header>

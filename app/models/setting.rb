@@ -5,18 +5,21 @@ class Setting < ActiveRecord::Base
   default_scope { order(:name) }
   scope :editable, -> { where(editable: true) }
 
-  before_create :set_key
-  before_update :set_key
+  before_create :set_slug
+  before_update :set_slug
 
   private
 
-  def set_key
-    self.key = name.downcase.gsub(/\W/, "_").gsub(/__/, "_").gsub(/(^_|_$)/, "")
+  def set_slug
+    self.slug = name.downcase.gsub(/\W/, "_").gsub(/__/, "_").gsub(/(^_|_$)/, "")
   end
 
   def special_settings
     # allow blank
-    if name =~ /Custom CSS|Rel Me/
+    # TODO: this is a mess
+    blankable_settings = /Custom CSS|Footer Show|Header Show|Rel Me|Site Title|Site Description|Public Key/
+
+    if name =~ blankable_settings
       return true
     # only one of three values
     elsif name == "Text Direction"

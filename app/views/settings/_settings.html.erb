@@ -3,7 +3,7 @@
     <dt><%= link_to setting.name, edit_setting_path(setting) %></dt>
 
     <dd>
-      <% if setting.key == "license" %>
+      <% if setting.slug == "license" %>
         <%= License.find(setting.content).short_code.html_safe %>
       <% else %>
         <%= setting.content %>

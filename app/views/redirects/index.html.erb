@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Redirects</h1>
+
+<ol>
+  <% @redirects.each do |redirect| %>
+    <li>
+      <%= redirect.source_path %><br>
+      <%= redirect.target_path %><br>
+      <%= link_to 'Show', redirect %><br>
+      <%= link_to 'Edit', edit_redirect_path(redirect) %><br>
+      <%= link_to 'Destroy', redirect, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <hr>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'New Redirect', new_redirect_path %>

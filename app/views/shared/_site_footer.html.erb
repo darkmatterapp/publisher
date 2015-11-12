@@ -1,0 +1,34 @@
+<footer role="contentinfo">
+  <%= render "/shared/google_site_search" if show?(:footer_show_site_search) %>
+
+  <div class="h-card">
+    <%= render "/shared/site_owner_photo" if show?(:footer_show_avatar) %>
+
+    <p>
+      <% if @owner.try(:name) && show?(:footer_show_name) && show?(:footer_show_email) %>
+        <strong>Contact:</strong>
+      <% end %>
+
+      <% unless @owner.nil? || @owner.name.blank? || hide?(:footer_show_name) %>
+        <%= link_to @owner.name, root_url, class: "u-url p-name" %>
+      <% end %>
+
+      <% unless @owner.nil? ||  @owner.email.blank? || hide?(:footer_show_email) %>
+        (<%= mail_to @owner.email, @owner.email, class: "u-email" %>)
+      <% end %>
+    </p>
+
+    <% unless @owner.nil? || @owner.links.blank? || hide?(:footer_show_links) %>
+      <p>
+        <strong>Links:</strong>
+        <% @owner.links.each do |link| %>
+          <%= link_to link.name, link.url, rel: "me", class: "u-url" %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+
+  <% if show?(:footer_show_license) %>
+    <p><%= license :html %>.</p>
+  <% end %>
+</footer>

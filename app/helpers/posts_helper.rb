@@ -1,11 +1,26 @@
 module PostsHelper
+  def edit_post_path(post)
+    if post.is_a?(Page)
+      ["pages", post.id, "edit"]
+    else
+      [post.params[:slug], "edit"]
+    end.join("/")
+  end
+
+  def post_id_and_classes(post, html_class: "h-entry")
+    {
+      id: "#{post.class.to_s.downcase}-#{post.id}",
+      class: html_class
+    }
+  end
+
   def rel_in_reply_to
     on_permalink? ? "in-reply-to external" : "external"
   end
 
   def link_to_in_reply_to_urls(post)
     links = []
-    protocol_regex = %r{/https*:\/\//}
+    protocol_regex = %r{https*:\/\/}
 
     unless post.in_reply_to.blank?
       post.in_reply_to.split.each do |url|
@@ -18,20 +33,6 @@ module PostsHelper
     end
   end
 
-  def tags_for(post)
-    separator = post.tags.match(",") ? "," : " "
-    post.tags.split(separator).map(&:strip)
-  end
-
-  def link_to_tags_for(post)
-    html = []
-
-    tags_for(post).each do |tag|
-      html << link_to(tag.to_s.strip, "/tags/#{tag.to_s.gsub(/\s/, '+')}", class: "p-category", rel: "tag")
-    end
-    html.join(", ").html_safe
-  end
-
   def human_readable_date(datetime)
     datetime.strftime("%F")
   end
@@ -41,23 +42,22 @@ module PostsHelper
   end
 
   def authors_name_and_url(format = nil)
-    # TODO: use current_user.name after /profile is expanded
     # TODO: use current_user.url (? about page) after /profile is expanded
     if format == :html
-      link_to(current_user.try(:email), root_url, class: "p-author h-card")
+      link_to(@owner.try(:name), root_url, class: "p-author h-card")
     else
-      current_user.try(:email)
+      @owner.try(:name)
     end
   end
 
   def canonical_url(post = nil)
-    # TODO refactor out complexity
+    # TODO: refactor out complexity
     path =
     if @slug == "profile"
       "profile"
     elsif action_name == "new"
       "/#{controller_name}/new"
-    elsif @slug != "settings" && action_name == "edit"
+    elsif @slug != "settings" && @slug != "links" && @slug != "redirects" && action_name == "edit"
       "#{post.path}/edit"
     elsif post
       post.path

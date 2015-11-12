@@ -1,0 +1,13 @@
+<% if post.public? || signed_in? %>
+  <%= content_tag (in_a_list? ? :li : :div) do %>
+    <%= content_tag :article, post_id_and_classes(post) do %>
+
+      <%= render "/posts/header", post: post %>
+      <%= render post, post: post %>
+      <%= render "/posts/footer", post: post %>
+
+      <%= link_to "Edit", edit_post_path(post), class: "edit" if signed_in? %>
+
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,41 +1,13 @@
-<% if video.public? || signed_in? %>
-  <%= raw "<li>" if in_a_list? %>
-    <article id="video-<%= video.id %>" class="h-entry as-video">
+<div class="e-content">
+  <video controls width="<%= video.width %>" height="<%= video.height %>" poster="<%= video.image_url %>" class="u-photo">
+    <source src="<%= video.enclosure_url %>" class="u-video" />
+  </video>
 
-      <header>
-        <% if a_reply?(video) %>
-          <div class="reply-context">
-            <b>In Reply To</b>
-            <%= link_to_in_reply_to_urls video %>
-          </div>
-        <% end %>
+  <p class="download">
+    <%= link_to "Download video", video.enclosure_url, class: "u-x-enclosure" %>
+  </p>
 
-        <h1 class="p-name">
-          <%= link_to video.path, class: "u-url u-uid" do %>
-            <% unless video.title.blank? %>   <span class="p-hs-title">   <%= video.title %>   </span><% end %>
-            <% unless video.subtitle.blank? %><span class="p-hs-subtitle"><%= video.subtitle %></span><% end %>
-          <% end %>
-        </h1>
-      </header>
-
-      <div class="e-content">
-        <video controls width="<%= video.width %>" height="<%= video.height %>" poster="<%= video.image_url %>" class="u-photo">
-          <source src="<%= video.enclosure_url %>" class="u-video" />
-        </video>
-
-        <p class="download">
-          <%= link_to "Download video", video.enclosure_url, class: "u-x-enclosure" %>
-        </p>
-
-        <div class="p-summary">
-          <%= raw video.content %>
-        </div>
-      </div>
-
-      <%= render partial: "posts/footer", locals: { post: video } %>
-      <%= link_to "Edit", edit_video_path(video.params), class: "edit" if signed_in? %>
-    </article>
-    
-    <hr>
-  <%= raw "</li>" if in_a_list? %>
-<% end %>
+  <div class="p-summary">
+    <%= raw video.content %>
+  </div>
+</div>

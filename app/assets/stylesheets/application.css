@@ -1,7 +1,3 @@
 /*
-*= require_tree .
-*= require_self
+*= require themes/default/_theme
 */
-
-/* uncomment when working at night and want a dark theme that's easier on the eyes */
-/*body { background: #222; color: #999; } a { color: #999; }*/

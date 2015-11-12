@@ -1,5 +1,5 @@
 module SettingsHelper
   def setting(key)
-    Setting.where(key: key).first.content
+    Setting.where(slug: key).first.try(:content)
   end
 end

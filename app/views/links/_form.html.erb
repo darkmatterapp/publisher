@@ -1,0 +1,20 @@
+<%= form_for(@link) do |f| %>
+  <% if @link.errors.any? %>
+    <% @link.errors.full_messages.each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Display Text" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :url, "URL" %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= link_to "Cancel", links_url %>
+    <%= f.submit %>
+  </div>
+<% end %>

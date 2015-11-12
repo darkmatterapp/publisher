@@ -1,0 +1,37 @@
+<% if signed_in? %>
+  <div id="admin">
+    <h1>Admin only</h1>
+    <h2><%= current_user.email %></h2>
+  
+    <nav role="navigation">
+      <ul>
+        <li><%= link_to "Profile", profile_path %></li>
+        <li><%= link_to "Settings", settings_path %></li>
+        <li><%= link_to "Sign Out", signout_path %></li>
+      </ul>
+    </nav>
+    
+    <nav role="navigation">
+      <ul>
+        <li><%= link_to "Articles", articles_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_article_path %>)<% end %></li>
+        <li><%= link_to "Bookmarks", bookmarks_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_bookmark_path %>)<% end %></li>
+        <li><%= link_to "Events", events_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_event_path %>)<% end %></li>
+        <li><%= link_to "Notes", notes_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_note_path %>)<% end %></li>
+        <li><%= link_to "Photos", photos_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_photo_path %>)<% end %></li>
+        <li><%= link_to "Sounds", sounds_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_sound_path %>)<% end %></li>
+        <li><%= link_to "Videos", videos_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_video_path %>)<% end %></li>
+        <li>&nbsp;</li>
+        <li><%= link_to "Pages", pages_path %></li>
+        <li><% if signed_in? %>(<%= link_to "new", new_page_path %>)<% end %></li>
+      </ul>
+    </nav>
+    
+  </div>
+<% end %>

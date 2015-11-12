@@ -1,41 +1,13 @@
-<% if photo.public? || signed_in? %>
-  <%= raw "<li>" if in_a_list? %>
-    <article id="photo-<%= photo.id %>" class="h-entry h-as-photo">
+<div class="e-content">
+  <%= link_to post.image_url, rel: "enclosure" do %>
+    <%= image_tag post.image_url, alt: post.name, class: "u-photo" %>
+  <% end %>
 
-      <header>
-        <% if a_reply?(photo) %>
-          <div class="reply-context">
-            <b>In Reply To</b>
-            <%= link_to_in_reply_to_urls photo %>
-          </div>
-        <% end %>
+  <p class="download">
+    <%= link_to "Download photo", post.image_url, class: "u-x-enclosure" %>
+  </p>
 
-        <h1 class="p-name">
-          <%= link_to photo.path, class: "u-url u-uid" do %>
-            <% unless photo.title.blank? %>   <span class="p-hs-title">   <%= photo.title %>   </span><% end %>
-            <% unless photo.subtitle.blank? %><span class="p-hs-subtitle"><%= photo.subtitle %></span><% end %>
-          <% end %>
-        </h1>
-      </header>
-      
-      <div class="e-content">
-        <%= link_to photo.image_url, rel: "enclosure" do %>
-          <%= image_tag photo.image_url, alt: photo.name, class: "u-photo" %>
-        <% end %>
-
-        <p class="download">
-          <%= link_to "Download photo", photo.image_url, class: "u-x-enclosure" %>
-        </p>
-
-        <div class="p-summary">
-          <%= raw photo.content %>
-        </div>
-      </div>
-
-      <%= render partial: "posts/footer", locals: { post: photo } %>
-      <%= link_to "Edit", edit_photo_path(photo.params), class: "edit" if signed_in? %>
-    </article>
-    
-    <hr>
-  <%= raw "</li>" if in_a_list? %>
-<% end %>
+  <div class="p-summary">
+    <%= simple_format post.content %>
+  </div>
+</div>

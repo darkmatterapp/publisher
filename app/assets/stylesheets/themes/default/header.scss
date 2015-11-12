@@ -1,0 +1,10 @@
+header[role=banner] {
+  .hs-site-title {
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  }
+  
+  .hs-site-description {
+    font-weight: normal;
+  }
+}

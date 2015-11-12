@@ -1,4 +1,6 @@
-<h1>Settings</h1>
+<h1>Profile</h1>
+
+<p>Or <strong><%= link_to "edit your links to other sites", links_path %></strong>.</p>
 
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
@@ -13,15 +15,28 @@
     </div>
   <% end %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation, "Confirm Password" %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= link_to "Cancel", root_path %>
-  <%= f.submit "Save Changes" %>
+  <div class="field">
+    <%= f.label :name, "Name (displayed publicly)" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar, "Profile Picture URL" %><br>
+    <%= f.url_field :avatar %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm Password" %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= link_to "Cancel", root_path %>
+    <%= f.submit %>
+  </div>
 <% end %>

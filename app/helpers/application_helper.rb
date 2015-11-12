@@ -1,4 +1,35 @@
 module ApplicationHelper
+  def hide?(name)
+    !show?(name)
+  end
+
+  def show_site_nav?
+    # hide site if there are no user or no posts
+    # TODO: change to Post.count.zero? when Post is implemented
+    !(Article.count + Event.count + Note.count + Photo.count + Bookmark.count + Sound.count + Video.count).zero? ||
+      User.count.zero?
+  end
+
+  def show?(name)
+    if setting(name).blank?
+      false
+    else
+      true
+    end
+  end
+
+  def show_nav_to?(page)
+    case page
+    when :home
+      if (hide?(:header_show_avatar) && hide?(:header_show_site_title)) ||
+          (setting(:site_title).blank? && @owner && @owner.avatar.blank?)
+        true
+      end
+    else
+      true
+    end
+  end
+
   def writing?
     action_name =~ /new|edit/
   end
@@ -76,10 +107,9 @@ module ApplicationHelper
 
   def page_description
     if in_a_list?
-      # TODO: use current_user.name after /profile is expanded
       # TODO: implement #post_type: notes, articles, photes, etc
-      page_description = "TODO: post_type.pluralize.capitalize by #{current_user.try(:email)}"
-    elsif on_permalink?
+      page_description = "Posts by #{@owner.try(:name)}"
+    elsif on_permalink? && @post
       page_description = @post.content
     else
       page_description = setting(:site_description)
@@ -92,10 +122,10 @@ module ApplicationHelper
     output = []
 
     # square pixel sizes
-    sizes = [180, 152, 144, 120, 114, 72, 76, 60, 57]
+    sizes = [57, 60, 72, 76, 114, 120, 144, 152, 180]
     sizes.each do |size|
       dimensions = "#{size}x#{size}"
-      href       = "/apple-touch-icon-#{dimensions}.png"
+      href = setting("touch_icon_url_#{dimensions}")
       output << tag(:link, rel: "apple-touch-icon", sizes: dimensions, href: href)
     end
 
