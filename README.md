@@ -60,7 +60,7 @@ Clone this repo.
 
 ```
 git clone https://github.com/darkmatterapp/publisher.git
-cd website
+cd publisher
 ```
 
 Then run the `bootstrap` script.
