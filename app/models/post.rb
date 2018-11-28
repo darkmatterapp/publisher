@@ -240,6 +240,7 @@ class Post < ApplicationRecord
       url = link.attr(:href)
 
       next unless /t.thisismyjam.com/.match?(url)
+
       jam_id = url.split('t.thisismyjam.com').compact.last.split('/')[2]
 
       api_url      = "http://api.thisismyjam.com/1/jams/#{jam_id}.json"
