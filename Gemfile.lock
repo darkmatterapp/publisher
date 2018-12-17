@@ -104,7 +104,7 @@ GEM
       colorize
       oauth
       trollop
-    hashie (3.5.7)
+    hashie (3.6.0)
     http (3.0.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -151,8 +151,8 @@ GEM
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
-    omniauth (1.8.1)
-      hashie (>= 3.4.6, < 3.6.0)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
     omniauth-oauth (1.1.0)
       oauth
