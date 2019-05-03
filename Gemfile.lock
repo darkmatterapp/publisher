@@ -287,7 +287,7 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    twitter-text (2.1.0)
+    twitter-text (3.0.0)
       idn-ruby
       unf (~> 0.1.0)
     tzinfo (1.2.5)
