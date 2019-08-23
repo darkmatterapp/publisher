@@ -45,7 +45,7 @@ gem 'rubocop-rspec'
 # testing
 group :development, :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'codeclimate-test-reporter', require: false
   gem 'factory_bot_rails'
   gem 'listen'
