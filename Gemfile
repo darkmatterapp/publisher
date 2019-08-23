@@ -18,7 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'autoprefixer-rails'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'uglifier'
 
 # auth
