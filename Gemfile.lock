@@ -231,7 +231,7 @@ GEM
     ruby-progressbar (1.10.1)
     ruby-units (2.3.1)
     ruby_dep (1.5.0)
-    rubyzip (1.2.2)
+    rubyzip (1.2.3)
     sassc (2.1.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -240,8 +240,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (3.142.3)
-      childprocess (>= 0.5, < 2.0)
+    selenium-webdriver (3.142.4)
+      childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
     simple_oauth (0.3.1)
     simplecov (0.13.0)
