@@ -154,7 +154,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    overcommit (0.50.0)
+    overcommit (0.52.0)
       childprocess (>= 0.6.3, < 4)
       iniparse (~> 1.4)
     parallel (1.17.0)
