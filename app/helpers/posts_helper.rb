@@ -20,7 +20,7 @@ module PostsHelper
 
   def link_to_in_reply_to_urls(post)
     links = []
-    protocol_regex = %r{https*:\/\/}
+    protocol_regex = %r{https*://}
 
     if post.in_reply_to.present?
       post.in_reply_to.split.each do |url|
