@@ -83,11 +83,3 @@ Security/Eval:
 Style/BarePercentLiterals:
   Exclude:
     - 'db/seeds/bookmarks.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Keywords.
-# Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW, NOTE
-:
-  Exclude:
-    - 'db/seeds/articles.rb'
