@@ -108,9 +108,3 @@ Style/IfUnlessModifier:
     - 'db/seeds/articles.rb'
     - 'db/seeds/links.rb'
     - 'db/seeds/notes.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/MultipleComparison:
-  Exclude:
-    - 'db/seeds/articles.rb'
