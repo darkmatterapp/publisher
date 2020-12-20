@@ -132,13 +132,12 @@ puts 'Trying dev seeds for each post-type...'
 
   puts "  Trying: #{posttype}"
   puts
-  if File.exist?(filepath)
-    puts "  Found: #{posttype}"
-    eval(File.open(filepath).read)
-    puts
-    puts '...done'
-    puts
-  end
+  next unless File.exist?(filepath)
+  puts "  Found: #{posttype}"
+  eval(File.open(filepath).read)
+  puts
+  puts '...done'
+  puts
 end
 
 # sync up threads before proceeding
