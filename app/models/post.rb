@@ -261,11 +261,12 @@ class Post < ApplicationRecord
   def images
     html_doc = Nokogiri::HTML(linked_content)
     photos = []
+    supported_extensions = %w[jpg|jpeg|png|gif|bmp]
 
     html_doc.css('a').each do |link|
       extension = URI.parse(link.attr(:href)).path.split('.').last
 
-      photos << { url: link.attr(:href) } if /^jpg|jpeg|png|gif|bmp$/.match?(extension.try(:downcase))
+      photos << { url: link.attr(:href) } if String(extension).downcase.in? supported_extensions
     end
 
     photos
@@ -274,11 +275,12 @@ class Post < ApplicationRecord
   def videos
     html_doc = Nokogiri::HTML(linked_content)
     videos = []
+    supported_extensions = %w[mp4|avi|mov|ogv|webm|m4v|3gp|m3u8]
 
     html_doc.css('a').each do |link|
       extension = link.attr(:href).split('.').last
 
-      videos << { url: link.attr(:href) } if /^[mp4|avi|mov|ogv|webm|m4v|3gp|m3u8]$/.match?(extension.downcase)
+      videos << { url: link.attr(:href) } if String(extension).downcase.in? supported_extensions
     end
 
     videos
@@ -287,11 +289,12 @@ class Post < ApplicationRecord
   def audios
     html_doc = Nokogiri::HTML(linked_content)
     audios = []
+    supported_extensions = %w[mp3 aac wav ogg oga m4a]
 
     html_doc.css('a').each do |link|
       extension = link.attr(:href).split('.').last
 
-      audios << { url: link.attr(:href) } if /^[mp3|aac|wav|ogg|oga|m4a]$/.match?(extension.downcase)
+      audios << { url: link.attr(:href) } if String(extension).downcase.in? supported_extensions
     end
 
     audios
