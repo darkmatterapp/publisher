@@ -120,9 +120,3 @@ Style/MultipleComparison:
 Style/RedundantInterpolation:
   Exclude:
     - 'db/seeds/notes.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/RedundantRegexpEscape:
-  Exclude:
-    - 'db/seeds/notes.rb'
