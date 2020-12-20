@@ -75,11 +75,3 @@ Lint/UselessAssignment:
 Security/Eval:
   Exclude:
     - 'db/seeds.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: percent_q, bare_percent
-Style/BarePercentLiterals:
-  Exclude:
-    - 'db/seeds/bookmarks.rb'
