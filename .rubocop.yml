@@ -5,6 +5,7 @@ AllCops:
 
   Exclude:
     - 'db/schema.rb'
+    - 'db/migrate/*' # TEMP: TODO: Use squasher
 
 Layout/IndentationConsistency:
   EnforcedStyle: 'indented_internal_methods'

@@ -124,7 +124,7 @@ s.save(validate: false)
 puts '...done.'
 
 Rails.application.eager_load!
-threads  = []
+threads = []
 
 puts 'Trying dev seeds for each post-type...'
 %w(dev.seeds activities articles bookmarks events notes photos sounds videos pages links).each do |posttype|
