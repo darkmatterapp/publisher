@@ -54,14 +54,6 @@ Layout/LineLength:
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: space
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: space, no_space
-Layout/SpaceInsideStringInterpolation:
-  Exclude:
-    - 'db/seeds/notes.rb'
-
 # Offense count: 17
 Lint/UselessAssignment:
   Exclude:
