@@ -5,7 +5,6 @@ AllCops:
 
   Exclude:
     - 'db/**/*'
-    - 'script/*'
 
 Layout/IndentationConsistency:
   EnforcedStyle: 'indented_internal_methods'
@@ -50,6 +49,10 @@ Style/SymbolArray:
 
 Style/MethodDefParentheses:
   Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'script/*'
 
 Style/AsciiComments:
   Enabled: false
