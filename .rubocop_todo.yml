@@ -114,9 +114,3 @@ Style/IfUnlessModifier:
 Style/MultipleComparison:
   Exclude:
     - 'db/seeds/articles.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantInterpolation:
-  Exclude:
-    - 'db/seeds/notes.rb'
