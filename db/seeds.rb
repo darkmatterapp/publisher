@@ -36,7 +36,7 @@ puts 'Creating default settings...'
   ['Header Show Site Search',      'true',                                      true],
   ['Header Show Site Description', 'true',                                      true],
   ['Header Show Site Title',       'true',                                      true],
-  ['Home Page',                    '',                                          true],
+  ['Home Page',                    '',                                          true]
 ].each do |setting|
   existing_setting = Setting.find_by(name: setting[0])
   s = existing_setting.blank? ? Setting.new : existing_setting

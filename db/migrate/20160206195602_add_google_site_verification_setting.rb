@@ -1,7 +1,7 @@
 class AddGoogleSiteVerificationSetting < ActiveRecord::Migration[4.2]
   def up
     [
-      ['Google Site Verification', '', true],
+      ['Google Site Verification', '', true]
     ].each do |setting|
       s          = Setting.new
       s.name     = setting[0]

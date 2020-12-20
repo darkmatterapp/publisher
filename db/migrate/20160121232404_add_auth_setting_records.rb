@@ -2,7 +2,7 @@ class AddAuthSettingRecords < ActiveRecord::Migration[4.2]
   def up
     [
       ['Syndication Twitter Key', '', true],
-      ['Syndication Twitter Secret', '', true],
+      ['Syndication Twitter Secret', '', true]
     ].each do |setting|
       s          = Setting.new
       s.name     = setting[0]
