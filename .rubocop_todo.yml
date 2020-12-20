@@ -46,14 +46,6 @@ Layout/FirstHashElementIndentation:
 Layout/LineLength:
   Max: 1332
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForEmptyBraces.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  EnforcedStyle: space
-
 # Offense count: 17
 Lint/UselessAssignment:
   Exclude:
