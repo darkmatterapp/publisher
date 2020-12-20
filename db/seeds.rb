@@ -123,7 +123,6 @@ s.editable = true
 s.save(validate: false)
 puts "...done."
 
-
 Rails.application.eager_load!
 threads  = []
 

@@ -3,9 +3,6 @@ require: rubocop-rspec
 AllCops:
   NewCops: enable
 
-  Exclude:
-    - 'db/**/*'
-
 Layout/IndentationConsistency:
   EnforcedStyle: 'indented_internal_methods'
 
