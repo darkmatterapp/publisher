@@ -6,7 +6,7 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'script/*'
-    - 'bin/*'
+    # - 'bin/*'
 
 Layout/IndentationConsistency:
   EnforcedStyle: 'indented_internal_methods'
