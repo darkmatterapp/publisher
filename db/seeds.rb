@@ -127,7 +127,7 @@ Rails.application.eager_load!
 threads = []
 
 puts 'Trying dev seeds for each post-type...'
-%w(dev.seeds activities articles bookmarks events notes photos sounds videos pages links).each do |posttype|
+%w[dev.seeds activities articles bookmarks events notes photos sounds videos pages links].each do |posttype|
   filepath = File.expand_path("../seeds/#{posttype}.rb", __FILE__)
 
   puts "  Trying: #{posttype}"
