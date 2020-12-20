@@ -14,7 +14,7 @@ AllCops:
     - 'tmp/**/*'
     - '.git/**/*'
 
-IndentationConsistency:
+Layout/IndentationConsistency:
   EnforcedStyle: 'indented_internal_methods'
 
 Naming/FileName:
@@ -34,11 +34,6 @@ Metrics/ClassLength:
 
 Metrics/ParameterLists:
   Max: 6
-
-Metrics/LineLength:
-  Max: 466
-  Exclude:
-    - 'app/models/dark_matter.rb'
 
 Metrics/MethodLength:
   Max: 40
@@ -80,6 +75,11 @@ Layout/HashAlignment:
 # https://rubocop.readthedocs.io/en/latest/cops_layout/
 Layout/IndentationWidth:
   Enabled: false
+
+Layout/LineLength:
+  Max: 466
+  Exclude:
+    - 'app/models/dark_matter.rb'
 
 # README: the `begin` in BadRequestRescue seems to be required
 Style/RedundantBegin:
