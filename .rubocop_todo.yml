@@ -39,13 +39,6 @@ Layout/FirstHashElementIndentation:
     - 'db/seeds/pages.rb'
     - 'db/seeds/sounds.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Max: 1332
-
 # Offense count: 17
 Lint/UselessAssignment:
   Exclude:
