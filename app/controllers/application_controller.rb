@@ -145,15 +145,11 @@ class ApplicationController < ActionController::Base
 
   def site_photo_format(response)
     # response: Net::HTTP.get_response(URI(...))
-    case response.content_type
-    when 'image/png'
-      'png'
-    when 'image/jpeg'
-      'jpg'
-    when 'image/gif'
-      'gif'
-    when 'image/svg+xml'
-      'svg'
-    end
+    {
+      'image/png'     => 'png',
+      'image/jpeg'    => 'jpg',
+      'image/gif'     => 'gif',
+      'image/svg+xml' => 'svg'
+    }[response.content_type]
   end
 end
