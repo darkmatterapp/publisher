@@ -185,9 +185,10 @@ class Post < ApplicationRecord
     videos = []
 
     html_doc.css('a').each do |link|
-      if /youtube.com/.match?(link.attr(:href))
+      case link.attr(:href)
+      when /youtube.com/
         videos << { video_id: link.attr(:href).split('v=').last }
-      elsif /youtu.be/.match?(link.attr(:href))
+      when /youtu.be/
         videos << { video_id: link.attr(:href).split('/').last }
       end
     end
