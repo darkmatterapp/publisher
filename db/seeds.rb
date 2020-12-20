@@ -142,7 +142,7 @@ puts 'Trying dev seeds for each post-type...'
 end
 
 # sync up threads before proceeding
-threads.each { |t| t.join }
+threads.each(&:join)
 
 puts '...done'
 puts
