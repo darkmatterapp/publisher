@@ -133,6 +133,7 @@ puts 'Trying dev seeds for each post-type...'
   puts "  Trying: #{posttype}"
   puts
   next unless File.exist?(filepath)
+
   puts "  Found: #{posttype}"
   eval(File.open(filepath).read)
   puts
