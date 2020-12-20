@@ -134,12 +134,3 @@ Style/RedundantRegexpEscape:
 Style/RegexpLiteral:
   Exclude:
     - 'db/seeds/notes.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInHashLiteral:
-  Exclude:
-    - 'db/seeds/bookmarks.rb'
-    - 'db/seeds/pages.rb'
