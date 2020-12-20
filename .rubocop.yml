@@ -15,16 +15,13 @@ AllCops:
     - '.git/**/*'
 
 IndentationConsistency:
-  EnforcedStyle: 'rails'
+  EnforcedStyle: 'indented_internal_methods'
 
 Naming/FileName:
   Exclude:
     - 'Gemfile'
     - 'Guardfile'
     - 'Rakefile'
-
-Rails:
-  Enabled: true
 
 Metrics/CyclomaticComplexity:
   Max: 15
@@ -72,7 +69,7 @@ Style/AsciiComments:
 Style/NestedParenthesizedCalls:
   Enabled: false
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: false
 
 # TEMP: private and def foo() are at the same indentation level
@@ -86,9 +83,6 @@ Style/RedundantBegin:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Rails/OutputSafety:
   Enabled: false
 
 # TEMP: Nokogiri’s use of `open` from `open-uri` is being
@@ -117,18 +111,9 @@ RSpec/DescribeClass:
 
 
 # TODO: Is there a better way to rescue this error?
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Exclude:
     - 'app/controllers/application_controller.rb'
 
 
 # TODO delete empty helper files
-
-
-# TODO: is there a better way to call a before_action/only on all controllers
-# Offense count: 1
-# Configuration parameters: Include.
-# Include: app/controllers/**/*.rb
-Rails/LexicallyScopedActionFilter:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
