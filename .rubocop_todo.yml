@@ -126,11 +126,3 @@ Style/RedundantInterpolation:
 Style/RedundantRegexpEscape:
   Exclude:
     - 'db/seeds/notes.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
-Style/RegexpLiteral:
-  Exclude:
-    - 'db/seeds/notes.rb'
