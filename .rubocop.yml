@@ -79,6 +79,7 @@ Layout/LineLength:
   Max: 466
   Exclude:
     - 'app/models/dark_matter.rb'
+    - 'db/seeds/*.rb'
 
 # README: the `begin` in BadRequestRescue seems to be required
 Style/RedundantBegin:
