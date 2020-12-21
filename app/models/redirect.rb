@@ -19,8 +19,8 @@ class Redirect < ApplicationRecord
   end
 
   def add_leading_slash!
-    self.source_path = "/#{source_path}" unless source_path =~ %r{^/}
-    self.target_path = "/#{target_path}" unless target_path =~ %r{^/}
+    self.source_path = "/#{source_path}" unless %r{^/}.match?(source_path)
+    self.target_path = "/#{target_path}" unless %r{^/}.match?(target_path)
   end
 
   def remove_protocol!

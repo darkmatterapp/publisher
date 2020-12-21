@@ -308,7 +308,7 @@ class Post < ApplicationRecord
       url = link.attr(:href)
 
       next unless /flickr.com|flic.kr/.match?(url)
-      next if url =~ %r{/tags|sets/}
+      next if %r{/tags|sets/}.match?(url)
 
       url =~ /flickr.com/
       url = url.sub('flickr.com',               'flickr.com/photos')
