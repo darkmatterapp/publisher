@@ -7,7 +7,7 @@ RSpec.describe Setting, type: :model do
   describe '.of' do
     it 'finds by the slug' do
       setting.update(slug: 'some_key')
-      expect(Setting.of(:some_key)).to eq setting
+      expect(described_class.of(:some_key)).to eq setting
     end
   end
 end

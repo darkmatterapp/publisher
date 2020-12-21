@@ -35,22 +35,22 @@ RSpec.describe Post, type: :model do
   describe '.for' do
     it 'finds private if the user exists' do
       post.update(private: true)
-      expect(Post.for_user(1)).to include post
+      expect(described_class.for_user(1)).to include post
     end
 
     it 'finds public if the user exists' do
       post.update(private: false)
-      expect(Post.for_user(1)).to include post
+      expect(described_class.for_user(1)).to include post
     end
 
     it "finds public if the user doesn't exist" do
       post.update(private: false)
-      expect(Post.for_user(nil)).to include post
+      expect(described_class.for_user(nil)).to include post
     end
 
     it 'finds public if private is nil' do
       post.update(private: nil)
-      expect(Post.for_user(nil)).to include post
+      expect(described_class.for_user(nil)).to include post
     end
 
     # TODO: FIXME

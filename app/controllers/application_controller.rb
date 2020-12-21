@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     unless request.env['HTTP_HOST'] == setting(:domain) ||
            Rails.env.development? ||
            setting(:domain).blank?
-      redirect_to site_url, status: 301
+      redirect_to site_url, status: :moved_permanently
     end
   end
 
@@ -145,15 +145,11 @@ class ApplicationController < ActionController::Base
 
   def site_photo_format(response)
     # response: Net::HTTP.get_response(URI(...))
-    case response.content_type
-    when 'image/png'
-      'png'
-    when 'image/jpeg'
-      'jpg'
-    when 'image/gif'
-      'gif'
-    when 'image/svg+xml'
-      'svg'
-    end
+    {
+      'image/png'     => 'png',
+      'image/jpeg'    => 'jpg',
+      'image/gif'     => 'gif',
+      'image/svg+xml' => 'svg'
+    }[response.content_type]
   end
 end

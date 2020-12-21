@@ -19,29 +19,29 @@ class Redirect < ApplicationRecord
   end
 
   def add_leading_slash!
-    self.source_path = "/#{source_path}" unless source_path =~ %r{^\/}
-    self.target_path = "/#{target_path}" unless target_path =~ %r{^\/}
+    self.source_path = "/#{source_path}" unless %r{^/}.match?(source_path)
+    self.target_path = "/#{target_path}" unless %r{^/}.match?(target_path)
   end
 
   def remove_protocol!
-    protocol_regex = %r{https*:\/\/}
+    protocol_regex = %r{https*://}
     self.source_path = source_path.sub(protocol_regex, '')
     self.target_path = target_path.sub(protocol_regex, '')
   end
 
   def remove_leading_slash!
-    self.source_path = source_path.sub(%r{^\/}, '')
-    self.target_path = target_path.sub(%r{^\/}, '')
+    self.source_path = source_path.sub(%r{^/}, '')
+    self.target_path = target_path.sub(%r{^/}, '')
   end
 
   def remove_domain!
-    self.source_path = source_path.split('/')[1..-1].join('/') if source_path =~ /\./
-    self.target_path = target_path.split('/')[1..-1].join('/') if target_path =~ /\./
+    self.source_path = source_path.split('/')[1..].join('/') if '.'.in? source_path
+    self.target_path = target_path.split('/')[1..].join('/') if '.'.in? target_path
   end
 
   def remove_trailing_slash!
-    self.source_path = source_path.sub(%r{$\/}, '')
-    self.target_path = target_path.sub(%r{$\/}, '')
+    self.source_path = source_path.sub(%r{$/}, '')
+    self.target_path = target_path.sub(%r{$/}, '')
   end
 
   def strip_whitespace!

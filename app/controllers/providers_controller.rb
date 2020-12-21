@@ -6,7 +6,7 @@ class ProvidersController < ApplicationController
     else
       request.env['omniauth.strategy'].options[:consumer_key]    = Setting.of(:syndication_twitter_key).content
       request.env['omniauth.strategy'].options[:consumer_secret] = Setting.of(:syndication_twitter_secret).content
-      render text: 'Omniauth setup phase.', status: 404
+      render text: 'Omniauth setup phase.', status: :not_found
     end
   end
 

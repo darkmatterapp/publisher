@@ -17,7 +17,7 @@ class AboutController < ApplicationController
 
   def site_photo
     if @owner.nil? || @owner.avatar.blank?
-      render plain: '404 Not Found', status: 404
+      render plain: '404 Not Found', status: :not_found
     else
       URI.parse(@owner.avatar)
 
@@ -26,7 +26,7 @@ class AboutController < ApplicationController
 
       return send_data(response.body, type: response.content_type, disposition: 'inline') if extension == params[:format]
 
-      redirect_to site_photo_path, status: 302
+      redirect_to site_photo_path, status: :found
     end
   end
 end

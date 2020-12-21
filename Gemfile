@@ -40,12 +40,13 @@ gem 'twitter'
 
 # code style guide and linting
 gem 'rubocop', require: false
+gem 'rubocop-performance'
+gem 'rubocop-rails'
 gem 'rubocop-rspec'
 
 # testing
 group :development, :test do
   gem 'capybara'
-  gem 'webdrivers'
   gem 'codeclimate-test-reporter', require: false
   gem 'factory_bot_rails'
   gem 'listen'
@@ -55,6 +56,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'webdrivers'
 end
 
 # development only

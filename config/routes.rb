@@ -1,18 +1,18 @@
-Rails.application.routes.draw do
-  POST_TYPES = {
-    activity: 'activities',
-    article:  'articles',
-    bookmark: 'bookmarks',
-    event:    'events',
-    note:     'notes',
-    photo:    'photos',
-    sound:    'sounds',
-    video:    'videos'
-  }.freeze
-  YEAR_MONTH_DAY_CONSTRAINTS = { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }.freeze
-  PAGINATION_CONSTRAINTS     = { page: /\d+/ }.freeze
-  YEAR_MONTH_DAY_PATH        = '/:year/:month/:day'.freeze
+POST_TYPES = {
+  activity: 'activities',
+  article:  'articles',
+  bookmark: 'bookmarks',
+  event:    'events',
+  note:     'notes',
+  photo:    'photos',
+  sound:    'sounds',
+  video:    'videos'
+}.freeze
+YEAR_MONTH_DAY_CONSTRAINTS = { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }.freeze
+PAGINATION_CONSTRAINTS     = { page: /\d+/ }.freeze
+YEAR_MONTH_DAY_PATH        = '/:year/:month/:day'.freeze
 
+Rails.application.routes.draw do
   root to: 'root#index'
 
   # Admin Dashboard

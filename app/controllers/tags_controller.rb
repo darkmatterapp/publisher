@@ -3,11 +3,7 @@ class TagsController < ApplicationController
     @tags = []
 
     Tag.all.each do |tag|
-      if signed_in?
-        @tags << tag
-      elsif tag.public_tag?
-        @tags << tag
-      end
+      @tags << tag if signed_in? || tag.public_tag?
     end
 
     @tags.sort_by! { |tag| tag.name.downcase }
