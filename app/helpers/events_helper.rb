@@ -14,26 +14,26 @@ module EventsHelper
   end
 
   def location_street_address_tag(event)
-    content_tag(:span, event.location_street_address,          class: 'p-street-address')          if event.location_street_address.present?
+    tag.span(event.location_street_address, class: 'p-street-address') if event.location_street_address.present?
   end
 
   def location_extended_street_address(event)
-    content_tag(:span, event.location_extended_street_address, class: 'p-extended-street-address') if event.location_extended_street_address.present?
+    tag.span(event.location_extended_street_address, class: 'p-extended-street-address') if event.location_extended_street_address.present?
   end
 
   def location_locality_tag(event)
-    content_tag(:span, event.location_locality,                class: 'p-locality')                if event.location_locality.present?
+    tag.span(event.location_locality, class: 'p-locality') if event.location_locality.present?
   end
 
   def location_region_tag(event)
-    content_tag(:span, event.location_region,                  class: 'p-region')                  if event.location_region.present?
+    tag.span(event.location_region, class: 'p-region') if event.location_region.present?
   end
 
   def location_postal_code_tag(event)
-    content_tag(:span, event.location_country,                 class: 'p-country')                 if event.location_country.present?
+    tag.span(event.location_country, class: 'p-country') if event.location_country.present?
   end
 
   def location_country_tag(event)
-    content_tag(:span, event.location_postal_code,             class: 'p-postal-code')             if event.location_postal_code.present?
+    tag.span(event.location_postal_code, class: 'p-postal-code') if event.location_postal_code.present?
   end
 end

@@ -12,7 +12,7 @@ module SyndicationsHelper
     if links.blank?
       blank
     else
-      content_tag(:p, "Also posted to #{links.flatten.join(', ')}.".html_safe)
+      tag.p("Also posted to #{links.flatten.join(', ')}.".html_safe)
     end
   end
 
@@ -21,13 +21,13 @@ module SyndicationsHelper
     links = []
 
     current_user.providers.each do |provider|
-      links << content_tag(:li, button_to(provider.provider.capitalize, syndicators_path(post.namespace, post.id, :twitter), class: 'link')) unless post.syndications.exists?(name: provider.provider)
+      links << tag.li(button_to(provider.provider.capitalize, syndicators_path(post.namespace, post.id, :twitter), class: 'link')) unless post.syndications.exists?(name: provider.provider)
     end
 
     if current_user.providers.blank?
-      content_tag(:p, link_to('Add Syndication Twitter Key and Syndication Twitter Secret settings to syndicate to Twitter', admin_settings_path))
+      tag.p(link_to('Add Syndication Twitter Key and Syndication Twitter Secret settings to syndicate to Twitter', admin_settings_path))
     elsif links.present?
-      [label, content_tag(:ul, links.flatten.join.html_safe)].join.html_safe
+      [label, tag.ul(links.flatten.join.html_safe)].join.html_safe
     end
   end
 end

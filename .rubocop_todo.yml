@@ -6,15 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 13
-# Cop supports --auto-correct.
-Rails/ContentTag:
-  Exclude:
-    - 'app/helpers/events_helper.rb'
-    - 'app/helpers/posts_helper.rb'
-    - 'app/helpers/syndications_helper.rb'
-    - 'app/helpers/words_helper.rb'
-
 # Offense count: 1
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: slashes, arguments
