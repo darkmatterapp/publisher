@@ -152,7 +152,7 @@ class Post < ApplicationRecord
   end
 
   def slug_exists?
-    Post.on(published_at).where(post_type_type: post_type_type, slug: slug).exists?
+    Post.on(published_at).exists?(post_type_type: post_type_type, slug: slug)
   end
 
   def linked_content

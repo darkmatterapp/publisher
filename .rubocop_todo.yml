@@ -68,11 +68,3 @@ Rails/UniqueValidationWithoutIndex:
   Exclude:
     - 'app/models/tag.rb'
     - 'app/models/user.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: exists, where
-Rails/WhereExists:
-  Exclude:
-    - 'app/models/post.rb'
