@@ -1,18 +1,19 @@
-POST_TYPES = {
-  activity: 'activities',
-  article:  'articles',
-  bookmark: 'bookmarks',
-  event:    'events',
-  note:     'notes',
-  photo:    'photos',
-  sound:    'sounds',
-  video:    'videos'
-}.freeze
-YEAR_MONTH_DAY_CONSTRAINTS = { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }.freeze
-PAGINATION_CONSTRAINTS     = { page: /\d+/ }.freeze
-YEAR_MONTH_DAY_PATH        = '/:year/:month/:day'.freeze
-
 Rails.application.routes.draw do
+  # TODO
+  POST_TYPES = {
+    activity: 'activities',
+    article:  'articles',
+    bookmark: 'bookmarks',
+    event:    'events',
+    note:     'notes',
+    photo:    'photos',
+    sound:    'sounds',
+    video:    'videos'
+  }.freeze
+  YEAR_MONTH_DAY_CONSTRAINTS = { year: /\d{4}/, month: /\d{1,2}/, day: /\d{1,2}/ }.freeze
+  PAGINATION_CONSTRAINTS     = { page: /\d+/ }.freeze
+  YEAR_MONTH_DAY_PATH        = '/:year/:month/:day'.freeze
+
   root to: 'root#index'
 
   # Admin Dashboard
@@ -48,11 +49,13 @@ Rails.application.routes.draw do
     get "/#{plural}/feed", to: "#{plural}#index", defaults: { format: 'atom' }, as: "#{plural}_feed"
 
     # Post CRUD
-    get    "#{plural}/new",                              to: "#{plural}#new",    as: "new_#{singular}"
+    get    plural.to_s,                                  to: "#{plural}#index"
     post   plural.to_s,                                  to: "#{plural}#create"
-    get    "#{plural}",                                  to: "#{plural}#index"
+
+    get    "#{plural}/new",                              to: "#{plural}#new",    as: "new_#{singular}"
     get    "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug",      to: "#{plural}#show",   as: singular.to_s,      constraints: YEAR_MONTH_DAY_CONSTRAINTS
     get    "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug/edit", to: "#{plural}#edit",   as: "edit_#{singular}", constraints: YEAR_MONTH_DAY_CONSTRAINTS
+
     patch  "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug",      to: "#{plural}#update",                         constraints: YEAR_MONTH_DAY_CONSTRAINTS
     put    "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug",      to: "#{plural}#update",                         constraints: YEAR_MONTH_DAY_CONSTRAINTS
     delete "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug",      to: "#{plural}#destroy",                        constraints: YEAR_MONTH_DAY_CONSTRAINTS

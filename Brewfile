@@ -1,4 +1,4 @@
-tap "heroku/brew"
+tap 'heroku/brew'
 
 brew 'postgresql'
 brew 'libidn'
