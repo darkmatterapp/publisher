@@ -135,7 +135,9 @@ puts 'Trying dev seeds for each post-type...'
   next unless File.exist?(filepath)
 
   puts "  Found: #{posttype}"
+  # rubocop:disable Security/Eval
   eval(File.open(filepath).read)
+  # rubocop:enable Security/Eval
   puts
   puts '...done'
   puts
