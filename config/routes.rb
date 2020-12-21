@@ -49,8 +49,8 @@ Rails.application.routes.draw do
 
     # Post CRUD
     get    "#{plural}/new",                              to: "#{plural}#new",    as: "new_#{singular}"
-    post   plural.to_s,                                  to: "#{plural}#create", as: plural.to_s
-    post   "#{plural}#{YEAR_MONTH_DAY_PATH}",            to: "#{plural}#create",                         constraints: YEAR_MONTH_DAY_CONSTRAINTS
+    post   plural.to_s,                                  to: "#{plural}#create"
+    get    "#{plural}",                                  to: "#{plural}#index"
     get    "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug",      to: "#{plural}#show",   as: singular.to_s,      constraints: YEAR_MONTH_DAY_CONSTRAINTS
     get    "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug/edit", to: "#{plural}#edit",   as: "edit_#{singular}", constraints: YEAR_MONTH_DAY_CONSTRAINTS
     patch  "#{plural}#{YEAR_MONTH_DAY_PATH}/:slug",      to: "#{plural}#update",                         constraints: YEAR_MONTH_DAY_CONSTRAINTS
