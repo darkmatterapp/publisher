@@ -48,13 +48,6 @@ Rails/OutputSafety:
     - 'app/helpers/tags_helper.rb'
     - 'app/models/post.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-Rails/Presence:
-  Exclude:
-    - 'db/seeds.rb'
-    - 'db/seeds/dev.seeds.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: NotNilAndNotEmpty, NotBlank, UnlessBlank.

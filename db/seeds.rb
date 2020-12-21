@@ -39,7 +39,7 @@ puts 'Creating default settings...'
   ['Home Page',                    '',                                          true]
 ].each do |setting|
   existing_setting = Setting.find_by(name: setting[0])
-  s = existing_setting.blank? ? Setting.new : existing_setting
+  s = existing_setting.presence || Setting.new
 
   s.name     = setting[0]
   s.content  = setting[1]
@@ -103,7 +103,7 @@ puts 'Populating licenses table...'
   ]
 ].each do |license|
   existing_license = License.find_by(short_code: license[1])
-  l = existing_license.blank? ? License.new : existing_license
+  l = existing_license.presence || License.new
 
   l.name        = license[0]
   l.short_code  = license[1]
@@ -115,7 +115,7 @@ puts '...done.'
 
 puts 'Setting copyright (All Rights Reserved) as default license...'
 existing_setting = Setting.find_by(name: 'License')
-s = existing_setting.blank? ? Setting.new : existing_setting
+s = existing_setting.presence || Setting.new
 
 s.name     = 'License'
 s.content  = License.find_by(name: 'All Rights Reserved').id
