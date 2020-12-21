@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     unless request.env['HTTP_HOST'] == setting(:domain) ||
            Rails.env.development? ||
            setting(:domain).blank?
-      redirect_to site_url, status: 301
+      redirect_to site_url, status: :moved_permanently
     end
   end
 
