@@ -12,10 +12,3 @@ Performance/RegexpMatch:
   Exclude:
     - 'app/models/post.rb'
     - 'app/models/redirect.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AutoCorrect.
-Performance/StringInclude:
-  Exclude:
-    - 'app/models/redirect.rb'

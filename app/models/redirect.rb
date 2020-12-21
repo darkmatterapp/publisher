@@ -35,8 +35,8 @@ class Redirect < ApplicationRecord
   end
 
   def remove_domain!
-    self.source_path = source_path.split('/')[1..].join('/') if source_path =~ /\./
-    self.target_path = target_path.split('/')[1..].join('/') if target_path =~ /\./
+    self.source_path = source_path.split('/')[1..].join('/') if '.'.in? source_path
+    self.target_path = target_path.split('/')[1..].join('/') if '.'.in? target_path
   end
 
   def remove_trailing_slash!
