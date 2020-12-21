@@ -9,7 +9,6 @@
 # Offense count: 17
 Lint/UselessAssignment:
   Exclude:
-    - 'db/seeds/photos.rb'
     - 'db/seeds/sounds.rb'
     - 'db/seeds/videos.rb'
 
