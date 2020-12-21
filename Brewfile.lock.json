@@ -1,0 +1,73 @@
+{
+  "entries": {
+    "tap": {
+      "heroku/brew": {
+        "revision": "2837c83addbfc07239b31500324f88782eef1f90"
+      }
+    },
+    "brew": {
+      "postgresql": {
+        "version": "13.1",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.big_sur.bottle.tar.gz",
+              "sha256": "e4d523c7171f265b340df22a88ff78e6fba4aed46afcf3f4e5bd4ac4b94e8a16"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.catalina.bottle.tar.gz",
+              "sha256": "13939e578f0a48c78966c2527dc48391b19650b51f7489767b5237e3bab16793"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/postgresql-13.1.mojave.bottle.tar.gz",
+              "sha256": "1826c98f6d117bd040fbb307c1c95dfa2dee6ff8647ec8010e1b79386aa59eb0"
+            }
+          }
+        }
+      },
+      "libidn": {
+        "version": "1.36",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "big_sur": {
+              "url": "https://homebrew.bintray.com/bottles/libidn-1.36.big_sur.bottle.tar.gz",
+              "sha256": "86c6d6ed8d6ad080f9174997ffa8f37196a33d84ea914a6e11654560cc1475b0"
+            },
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/libidn-1.36.catalina.bottle.tar.gz",
+              "sha256": "1c1767101241edbd4141dc100e1c715b021be85e3fcf3657ea3bbdcb1fa884ec"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/libidn-1.36.mojave.bottle.tar.gz",
+              "sha256": "61e978964009ca11bb25bb366f47872b306a54bbec468f0eca4924a8155bc8a4"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/libidn-1.36.high_sierra.bottle.tar.gz",
+              "sha256": "306d665a4722e8c32da822c5185eba3abfa2ca0f0624e67e28549c44fb83f9f4"
+            }
+          }
+        }
+      },
+      "heroku": {
+        "version": "7.47.5",
+        "bottle": false
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "big_sur": {
+        "HOMEBREW_VERSION": "2.6.1-54-g12d8d6d",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "dfc96f43ad62281b2b9154f8b59c230bdedbf81f",
+        "CLT": "12.3.0.0.1.1607026830",
+        "Xcode": "12.3",
+        "macOS": "11.1"
+      }
+    }
+  }
+}
