@@ -41,6 +41,7 @@ gem 'twitter'
 # code style guide and linting
 gem 'rubocop', require: false
 gem 'rubocop-performance'
+gem 'rubocop-rails'
 gem 'rubocop-rspec'
 
 # testing
