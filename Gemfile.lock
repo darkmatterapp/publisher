@@ -50,7 +50,7 @@ GEM
       execjs (> 0)
     bcrypt (3.1.16)
     bindex (0.5.0)
-    bootsnap (1.7.3)
+    bootsnap (1.7.5)
       msgpack (~> 1.0)
     buftok (0.2.0)
     builder (3.2.4)
