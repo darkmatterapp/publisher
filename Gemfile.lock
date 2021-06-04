@@ -326,7 +326,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bcrypt (~> 3.1)
+  bcrypt
   bootsnap
   byebug
   capybara

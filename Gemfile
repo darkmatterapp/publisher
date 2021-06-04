@@ -23,7 +23,7 @@ gem 'sassc-rails'
 gem 'uglifier'
 
 # auth
-gem 'bcrypt', '~> 3.1'
+gem 'bcrypt'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
