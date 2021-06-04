@@ -39,14 +39,14 @@ gem 'ruby-units'
 # syndication
 gem 'twitter'
 
-# code style guide and linting
-gem 'rubocop', require: false
-gem 'rubocop-performance'
-gem 'rubocop-rails'
-gem 'rubocop-rspec'
-
 # testing
 group :development, :test do
+  # code style guide and linting
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+
   gem 'capybara'
   gem 'codeclimate-test-reporter', require: false
   gem 'factory_bot_rails'
