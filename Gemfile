@@ -18,6 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'autoprefixer-rails'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'mimemagic'
 gem 'sassc-rails'
 gem 'uglifier'
 
