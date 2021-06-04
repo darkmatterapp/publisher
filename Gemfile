@@ -11,8 +11,8 @@ gem 'pg'
 gem 'puma'
 # gem 'rack-timeout'
 
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+# Reduces boot times through caching
+gem 'bootsnap'
 
 # assets: css / js
 gem 'autoprefixer-rails'
